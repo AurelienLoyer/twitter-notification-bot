@@ -1,0 +1,17 @@
+{
+  "name": "twitter-notification-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git subtree push —-prefix dist heroku master",
+    "start": "node app.js"
+  },
+  "author": "Aurélien Loyer",
+  "license": "ISC",
+  "dependencies": {
+    "promise": "^8.0.1",
+    "twit": "^2.2.9"
+  }
+}
