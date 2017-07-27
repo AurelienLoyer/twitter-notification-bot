@@ -38,7 +38,7 @@ T.get('followers/ids', { screen_name: 'AurelienLoyer', count: 200 },  function (
     fs.writeFile('followers.json', JSON.stringify(data), 'utf8');
 
     if(traitres.length) notice()
-    else console.log('Pas de traitre pour le moment 😈');
+    else sendMeMessage('Pas de traitre pour le moment 😈');
 })
 
 function notice(){
@@ -58,10 +58,14 @@ function notice(){
         console.log(message)
 
         //envoie du message en pv sur Twitter
-        T.post('direct_messages/new',{ 
-            screen_name: config.twitter_screen_name, 
-            text: message
-        })
+        sendMeMessage(message);
     });
 
+}
+
+function sendMeMessage(message){
+    T.post('direct_messages/new',{ 
+        screen_name: config.twitter_screen_name, 
+        text: message
+    })
 }
